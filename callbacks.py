@@ -114,7 +114,7 @@ def change_phone_number(update: Update, context: CallbackContext) -> None:
             keyboard=[
                 [
                     KeyboardButton(
-                        text="📲 Telefon raqamni yuborish",
+                        text="📲 Mening telefon raqamim ",
                         request_contact=True
                     )
                 ],
