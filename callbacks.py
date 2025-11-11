@@ -66,7 +66,7 @@ def send_settings(update: Update, context: CallbackContext) -> None:
                 ],
                 [
                     KeyboardButton(
-                        text='📞 Change your phone number'
+                        text="📞 Telefon raqamingizni o'zgartiring"
                     )
                 ],
                 [
@@ -107,3 +107,24 @@ def change_language(update: Update, context: CallbackContext) -> None:
         )
     )
     
+def change_phone_number(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text(
+        text="📞 Iltimos, telefon raqamingizni yuboring",
+        reply_markup=ReplyKeyboardMarkup(
+            keyboard=[
+                [
+                    KeyboardButton(
+                        text="📲 Telefon raqamni yuborish",
+                        request_contact=True
+                    )
+                ],
+                [
+                    KeyboardButton(
+                        text="Orqaga"
+                    )
+                ]
+            ],
+            resize_keyboard=True,
+            one_time_keyboard=True
+        )
+    )

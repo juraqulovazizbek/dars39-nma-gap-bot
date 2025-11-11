@@ -1,7 +1,8 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 from config import Config
-from callbacks import start, send_orders, send_about, change_language, send_settings , sendFeedback
+from callbacks import start, send_orders, send_about, change_language, send_settings , sendFeedback , change_phone_number
+
 
 
 def main() -> None:
@@ -39,6 +40,12 @@ def main() -> None:
         handler=MessageHandler(
             filters=Filters.text("🌐 Tilni o'zgartirish"),
             callback=change_language
+        )
+    )
+    dispatcher.add_handler(
+        handler=MessageHandler(
+            filters=Filters.text("📞 Telefon raqamingizni o'zgartiring"),
+            callback=change_phone_number
         )
     )
 
