@@ -1,7 +1,7 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 from config import Config
-from callbacks import start, send_orders, send_about, change_language, send_settings
+from callbacks import start, send_orders, send_about, change_language, send_settings , sendFeedback
 
 
 def main() -> None:
@@ -35,6 +35,12 @@ def main() -> None:
             callback=send_settings
         )
     )
+    dispatcher.add_handler(
+        handler=MessageHandler(
+            filters=Filters.text("🌐 Tilni o'zgartirish"),
+            callback=change_language
+        )
+    )
 
     dispatcher.add_handler(
         handler=MessageHandler(
@@ -45,8 +51,8 @@ def main() -> None:
 
     dispatcher.add_handler(
         handler=MessageHandler(
-            filters=Filters.text('Tilni o\'zgartirish'),
-            callback=change_language
+            filters=Filters.text('✍️ Fikr qoldirish'),
+            callback=sendFeedback
         )
     )
 

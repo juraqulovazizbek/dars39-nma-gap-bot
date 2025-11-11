@@ -43,6 +43,12 @@ def start(update: Update, context: CallbackContext) -> None:
     
 def send_orders(update: Update, context: CallbackContext) -> None:
     update.message.reply_text('Sizda hali birorta ham buyurtma yo`q')
+def sendFeedback(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text(
+        "Buyurtma berish uchun asosiy menyudagi “Buyurtma” tugmasidan foydalaning.\n\n"
+        "Biz sizning fikr-mulohazalaringizni juda qadrlaymiz! "
+        "Buyurtma berganingizdan so'ng, o'z fikr va mulohazalaringizni shu yerda qoldirishingiz mumkin."
+    )
     
 def send_about(update: Update, context: CallbackContext) -> None:
     update.message.reply_text('shu yerda joylashganmiz')
@@ -55,12 +61,12 @@ def send_settings(update: Update, context: CallbackContext) -> None:
             keyboard=[
                 [
                     KeyboardButton(
-                        text='🌐 Tilni o\'zgartirish'
+                       text=("🌐 Tilni o'zgartirish")
                     )
                 ],
                 [
                     KeyboardButton(
-                        text='🌐 Raqamni o\'zgartirish'
+                        text='📞 Change your phone number'
                     )
                 ],
                 [
@@ -74,19 +80,30 @@ def send_settings(update: Update, context: CallbackContext) -> None:
     
 def change_language(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(
-        text='tilni tanlang',
-        reply_markup=InlineKeyboardMarkup(
-            inline_keyboard=[
+         text="🌐 Tilni o'zgartirish",
+        reply_markup=ReplyKeyboardMarkup(
+            keyboard=[
                 [
-                    InlineKeyboardButton(
-                        text='Uzbek',
-                        callback_data='change_lang:uz'
-                    ),
-                    InlineKeyboardButton(
-                        text='English',
-                        callback_data='movie:34'
+                    KeyboardButton(
+                        text="🇺🇿 O'zbekcha"
                     )
-                ]
+                ],
+                [
+                    KeyboardButton(
+                        text='🇷🇺 Русский'
+                    )
+                ],
+                [
+                    KeyboardButton(
+                        text='🇺🇸 English'
+                    )
+                ],
+                [
+                    KeyboardButton(
+                        text='Orqaga'
+                    )
+                ],
             ]
         )
     )
+    
